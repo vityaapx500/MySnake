@@ -202,7 +202,7 @@ namespace MySnake
                 Labelscore.Text = "Счёт: " + ++score;
                 snake[score] = new PictureBox();
                 snake[score].Location = new Point(snake[score - 1].Location.X + 40 * dirX, snake[score - 1].Location.Y - 40 * dirY);
-                snake[score].Size = new Size(_sizeOfSides-1, _sizeOfSides-1);
+                snake[score].Size = new Size(_sizeOfSides-1, _sizeOfSides-1); 
                 snake[score].BackColor = Color.Red;
                 this.Controls.Add(snake[score]);
                 if (score > 0)
