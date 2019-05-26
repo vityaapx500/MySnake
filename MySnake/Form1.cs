@@ -57,7 +57,7 @@ namespace MySnake
             fr_rules.Height = 320;
             fr_rules.StartPosition = FormStartPosition.CenterScreen;
             fruit.Size = new Size(_sizeOfSides, _sizeOfSides); //Размер "фрукта"
-            SP = new SoundPlayer(Application.StartupPath + "//untitled.wav");
+            SP = new SoundPlayer(Application.StartupPath + "//untitled.wav"); //Музыка для игры
             SP.PlayLooping();
             this.Click += new EventHandler(правилаToolStripMenuItem_Click);
             this.KeyDown += new KeyEventHandler(OKP);
