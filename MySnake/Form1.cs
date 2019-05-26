@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Media;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -16,6 +16,7 @@ namespace MySnake
         private int _height = 800; //Высота формы
         private int _sizeOfSides = 40; //Сторона квадрата клетки
         private int score = 0; //Начальный счёт
+        private SoundPlayer SP; //Муз/ плейр
 
         //Элементы формы Правила 
         private Form fr_rules; //Форма правил
@@ -49,12 +50,15 @@ namespace MySnake
             _generationmap(); //Генерация сетки карты
             _generationfruit(); //Генерация фрукта
             fruit.BackColor = Color.Green;
-            fr_rules = new Form();
+            fr_rules = new Form(); //Создание формы "Правила"
             fr_rules.Text = "Правила";
+            //Размер формы
             fr_rules.Width = 400;
             fr_rules.Height = 320;
             fr_rules.StartPosition = FormStartPosition.CenterScreen;
-            fruit.Size = new Size(_sizeOfSides, _sizeOfSides);
+            fruit.Size = new Size(_sizeOfSides, _sizeOfSides); //Размер "фрукта"
+            SP = new SoundPlayer(Application.StartupPath + "//untitled.wav");
+            SP.PlayLooping();
             this.Click += new EventHandler(правилаToolStripMenuItem_Click);
             this.KeyDown += new KeyEventHandler(OKP);
         }
@@ -66,6 +70,8 @@ namespace MySnake
             fr_rules.Show();
             Rules_Form_Fill();
         }
+
+        //Заполнение формы "Правила"
         private void Rules_Form_Fill()
         {
             //Загoловок "Правила"
@@ -116,13 +122,14 @@ namespace MySnake
             btn_Rules_ok.Click += new EventHandler(btn_Rules_Click_ok);
             fr_rules.Controls.Add(btn_Rules_ok);
         }
-
+        //Кнопка ОК в MessageBox на форме "Правила"
         private void btn_Rules_Click_ok(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             fr_rules.Close();
         }
-        private void _generationfruit() //Генерация фрукта
+        //Генерация фрукта
+        private void _generationfruit()
         {
             Random r = new Random();
             r1 = r.Next(0, _height - _sizeOfSides);
