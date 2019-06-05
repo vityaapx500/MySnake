@@ -11,12 +11,12 @@ namespace MySnake
         private PictureBox fruit; //PictureBox для фрукта
         private PictureBox[] snake = new PictureBox[400]; //Массив для змеейки
         private Label Labelscore; //"Счёт: "
-        private int dirX, dirY; //Настправления для движения змейки
+        private int dirX, dirY; //Направления для движения змейки
         private int _width = 900; //Ширина формы
         private int _height = 800; //Высота формы
         private int _sizeOfSides = 40; //Сторона квадрата клетки
         private int score = 0; //Начальный счёт
-        private SoundPlayer SP; //Муз/ плейр
+        private SoundPlayer SP; //Муз. плейр
 
         //Элементы формы Правила 
         private Form fr_rules; //Форма правил
